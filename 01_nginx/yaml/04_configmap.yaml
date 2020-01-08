@@ -5,7 +5,8 @@ metadata:
   name: nginx-webpage
 data:
   index.html: |
-  <body>
-    <h1>Hello World !</h1>
-  </body>
+    <body>
+      <h1>Hello World !</h1>
+    </body>
+
 # vim: set ts=2 sw=2 et:
