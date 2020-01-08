@@ -13,7 +13,7 @@
 
 ## Create a MariaDB database
 
-* Deploy the `mariadb:10` image: 
+* Deploy the `mariadb:10` image:
   * Using a `deployment` of one replica
   * Exposing an environment variable called `MYSQL_ROOT_PASSWORD` containing the password of your choice
   * Exposing an environment variable called `MYSQL_DATABASE` with the value `wordpress` (to automatically create an empty database at MariaDB startup)
@@ -23,14 +23,19 @@
 * Delete the mariadb container to have it recreated.
 * Go back to Wordpress and note that all previous work is now lost.
 
+## Store MySQL credentials in a secret
+
+* Create a `secret` containing mysql user (`root`) and the corresponding password.
+* Update the mariadb deployment to use this secret for the root password.
+
 ## Put Wordpress database settings into environment variables
 
 * Edit the wordpress deployment and add the following environment variables with appropriate values:
   * WORDPRESS_DB_HOST
   * WORDPRESS_DB_NAME
-  * WORDPRESS_DB_USER
-  * WORDPRESS_DB_PASSWORD
-* Confirm the database settings are now automatically configured.
+  * WORDPRESS_DB_USER from the secret previously created
+  * WORDPRESS_DB_PASSWORD from the secret previously created
+* Confirm the database settings are now automatically configured at first wordpress start
 
 ## Persist the MariaDB volume
 
