@@ -13,10 +13,11 @@
 
 ## Create a MariaDB database
 
-* Deploy the `mariadb:10` image, using a `deployment` of one replica, exposing an environment variable called `MYSQL_ROOT_PASSWORD` containing the password of your choice and  exposing the port `3306`.
-
-#FIXME: the default config seems to only listen on localhost
-
+* Deploy the `mariadb:10` image: 
+  * Using a `deployment` of one replica
+  * Exposing an environment variable called `MYSQL_ROOT_PASSWORD` containing the password of your choice
+  * Exposing an environment variable called `MYSQL_DATABASE` with the value `wordpress` (to automatically create an empty database at MariaDB startup)
+  * Exposing the port `3306`.
 * Create a `service` to expose the MariaDB server.
 * Resume the Wordpress setup to use the newly created database.
 * Delete the mariadb container to have it recreated.
