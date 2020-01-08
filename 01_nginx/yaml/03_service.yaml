@@ -10,6 +10,6 @@ spec:
     targetPort: 80
   selector:
     app: nginx
-  type: ClusterIP
+  type: LoadBalancer
 
 # vim: set ts=2 sw=2 et:
