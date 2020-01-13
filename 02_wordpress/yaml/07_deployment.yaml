@@ -20,11 +20,10 @@ spec:
         - containerPort: 3306
         env:
           - name: MYSQL_ROOT_PASSWORD
-            value: securepassword
             valueFrom:
               secretKeyRef:
                 name: mysql-creds
-            key: mysql_password
+                key: mysql_password
           - name: MYSQL_DATABASE
             value: wordpress
 
